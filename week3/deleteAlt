@@ -1,0 +1,10 @@
+void deleteAlt(struct Node *head){
+    Node *p=head;
+    Node *q;
+    while(p->next!=NULL && p!=NULL){
+        q=p->next;
+        p->next=q->next;
+        p=p->next;
+          free(q);
+    }
+}
