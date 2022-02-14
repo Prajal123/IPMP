@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+struct Node{
+    int data;
+    Node *next;
+    Node(int val){
+        data=val;
+        next=NULL;
+    }
+};
+int getNthFromLast(Node *head,int n){
+    int i=1;
+    Node *ptr=head;
+    while(ptr->next!=NULL){
+       ptr=ptr->next;
+       i++;
+    }
+
+    int j=1;
+    ptr=head;
+    while(j!=(i-n+1)){
+         ptr=ptr->next;
+         j++;
+    }
+    return ptr->data;
+}
+int main(){
+
+    Node *head,*second,*temp;
+    head=new Node(1);
+     temp=head;
+     for(int i=2;i<=5;i++){
+       second =new Node(i);
+       temp->next=second;
+       temp=second;
+     }
+     cout<<getNthFromLast(head,3)<<endl;
+    return 0;
+}

@@ -1,0 +1,19 @@
+bool isPalindrome(Node *head)
+    {
+       stack <int> s;
+       struct Node *ptr=head;
+       while(ptr!=NULL){
+           s.push(ptr->data);
+           ptr=ptr->next;
+       }
+       ptr=head;
+       while(ptr!=NULL){
+           int key=s.top();
+           s.pop();
+           if(key!=ptr->data){
+               return 0;
+       }
+       ptr=ptr->next;
+    }
+    return 1;
+    }

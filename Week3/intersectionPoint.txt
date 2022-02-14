@@ -1,0 +1,17 @@
+int intersectPoint(Node* head1, Node* head2)
+{
+    unordered_set<Node *> s;
+    Node *ptr=head1;
+    while(ptr!=NULL){
+        s.insert(ptr);
+        ptr=ptr->next;
+    }
+    Node *ptr2=head2;
+    while(ptr2!=NULL){
+        if(s.find(ptr2)!=s.end()){
+            return ptr2->data;
+        }
+        ptr2=ptr2->next;
+    }
+    return -1;
+}

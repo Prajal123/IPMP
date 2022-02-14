@@ -1,0 +1,27 @@
+  Node* divide(int N, Node *head){
+        Node *odd_p=NULL,*even_p=NULL;
+        Node *ptr=head;
+        Node *temp1,*temp2;
+        while(ptr!=NULL){
+            if((ptr->data)%2==0){
+                if(even_p==NULL){
+                    even_p=ptr;
+                    temp1=even_p;
+                }else{
+                    temp1->next=ptr;
+                    temp1=ptr;
+                }
+            }else{
+                 if(odd_p==NULL){
+                    odd_p=ptr;
+                    temp2=odd_p;
+                }else{
+                    temp2->next=ptr;
+                    temp2=ptr;
+                }
+            }
+            ptr=ptr->next;
+        }
+      temp1->next=odd_p;
+        return even_p;
+    }

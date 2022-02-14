@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+struct Node{
+    int data;
+    Node *next;
+    Node(int val){
+        data=val;
+        next=NULL;
+    }
+};
+
+void printRecur(Node *head){
+    if(head==NULL){
+        return ;
+    }
+    printRecur(head->next);
+    cout<<head->data<<" ";
+}
+int main(){
+
+    Node *head,*second,*temp;
+    head=new Node(1);
+     temp=head;
+     for(int i=2;i<=5;i++){
+       second =new Node(i);
+       temp->next=second;
+       temp=second;
+     }
+    printRecur(head);
+    return 0;
+}
